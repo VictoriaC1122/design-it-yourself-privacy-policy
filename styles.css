@@ -1,0 +1,259 @@
+:root {
+  --bg: #f6f0e7;
+  --bg-deep: #e9d7c4;
+  --panel: rgba(255, 253, 252, 0.72);
+  --panel-strong: rgba(255, 250, 245, 0.88);
+  --line: rgba(138, 90, 59, 0.14);
+  --text: #3a2a1f;
+  --subtext: #6f5c4c;
+  --primary: #8a5a3b;
+  --secondary: #b67c52;
+  --terracotta: #c89263;
+  --glow: rgba(255, 244, 228, 0.9);
+  --shadow: rgba(73, 42, 20, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Noto Sans TC", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(216, 161, 91, 0.24), transparent 32%),
+    radial-gradient(circle at top right, rgba(142, 155, 122, 0.16), transparent 28%),
+    linear-gradient(135deg, var(--bg), #f2e4d2 45%, var(--bg-deep));
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.28), transparent 24%, transparent 76%, rgba(255, 255, 255, 0.18)),
+    repeating-linear-gradient(
+      115deg,
+      rgba(138, 90, 59, 0.018) 0,
+      rgba(138, 90, 59, 0.018) 3px,
+      transparent 3px,
+      transparent 18px
+    );
+  mix-blend-mode: soft-light;
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 44px;
+}
+
+.glass-panel {
+  background: linear-gradient(180deg, rgba(255, 252, 248, 0.84), var(--panel));
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 22px 48px var(--shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 36px;
+  border-radius: 30px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: -40% auto auto 58%;
+  width: 340px;
+  height: 340px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.52), transparent 62%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.hero h1 {
+  margin-top: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.hero-copy {
+  max-width: 760px;
+  margin: 16px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--subtext);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.hero-meta span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.52);
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.sidebar,
+.policy-card {
+  border-radius: 28px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  padding: 24px;
+}
+
+.sidebar h2 {
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+}
+
+.summary-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--subtext);
+  line-height: 1.85;
+}
+
+.summary-list li + li {
+  margin-top: 10px;
+}
+
+.contact-card {
+  margin-top: 22px;
+  padding: 18px;
+  border-radius: 22px;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+}
+
+.contact-card h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.contact-card p {
+  margin: 0 0 6px;
+}
+
+.policy-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.policy-card {
+  padding: 24px 26px;
+}
+
+.policy-card h2 {
+  font-size: 1.18rem;
+  margin-bottom: 12px;
+}
+
+.policy-card p,
+.policy-card li {
+  color: var(--subtext);
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+.policy-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.policy-card ul + p,
+.policy-card p + p {
+  margin-top: 12px;
+}
+
+.contact-detail a,
+.contact-card a {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(138, 90, 59, 0.25);
+}
+
+.contact-detail a:hover,
+.contact-card a:hover {
+  color: var(--secondary);
+}
+
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .hero {
+    padding: 28px 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 20px, 1180px);
+    padding-top: 18px;
+  }
+
+  .hero h1 {
+    font-size: 2.55rem;
+  }
+
+  .policy-card,
+  .sidebar {
+    padding: 20px 18px;
+    border-radius: 24px;
+  }
+
+  .hero-meta span {
+    width: 100%;
+  }
+}
