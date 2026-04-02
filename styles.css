@@ -1,16 +1,18 @@
 :root {
   --bg: #f6f0e7;
   --bg-deep: #e9d7c4;
-  --panel: rgba(255, 253, 252, 0.72);
-  --panel-strong: rgba(255, 250, 245, 0.88);
-  --line: rgba(138, 90, 59, 0.14);
+  --panel: rgba(255, 253, 249, 0.74);
+  --panel-strong: rgba(255, 250, 244, 0.92);
+  --line: rgba(205, 175, 148, 0.55);
+  --line-soft: rgba(138, 90, 59, 0.12);
   --text: #3a2a1f;
-  --subtext: #6f5c4c;
+  --subtext: #5f4e40;
   --primary: #8a5a3b;
-  --secondary: #b67c52;
+  --secondary: #a86f48;
   --terracotta: #c89263;
-  --glow: rgba(255, 244, 228, 0.9);
-  --shadow: rgba(73, 42, 20, 0.14);
+  --sage: #8e9b7a;
+  --glow: rgba(255, 244, 228, 0.92);
+  --shadow: rgba(75, 46, 29, 0.14);
 }
 
 * {
@@ -27,9 +29,9 @@ body {
   font-family: "Noto Sans TC", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(216, 161, 91, 0.24), transparent 32%),
-    radial-gradient(circle at top right, rgba(142, 155, 122, 0.16), transparent 28%),
-    linear-gradient(135deg, var(--bg), #f2e4d2 45%, var(--bg-deep));
+    radial-gradient(circle at top left, rgba(216, 161, 91, 0.26), transparent 30%),
+    radial-gradient(circle at right top, rgba(142, 155, 122, 0.18), transparent 24%),
+    linear-gradient(135deg, var(--bg), #f1e4d4 45%, var(--bg-deep));
 }
 
 body::before {
@@ -38,9 +40,9 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(120deg, rgba(255, 255, 255, 0.28), transparent 24%, transparent 76%, rgba(255, 255, 255, 0.18)),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.24), transparent 24%, transparent 76%, rgba(255, 255, 255, 0.18)),
     repeating-linear-gradient(
-      115deg,
+      120deg,
       rgba(138, 90, 59, 0.018) 0,
       rgba(138, 90, 59, 0.018) 3px,
       transparent 3px,
@@ -50,94 +52,113 @@ body::before {
 }
 
 .page-shell {
-  width: min(1180px, calc(100% - 32px));
+  width: min(1200px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 28px 0 44px;
+  padding: 30px 0 48px;
 }
 
 .glass-panel {
-  background: linear-gradient(180deg, rgba(255, 252, 248, 0.84), var(--panel));
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.92), var(--panel));
+  border: 1px solid rgba(255, 255, 255, 0.62);
   box-shadow:
     0 22px 48px var(--shadow),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
 }
 
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 36px;
-  border-radius: 30px;
+  padding: 38px;
+  border-radius: 32px;
+  display: grid;
+  gap: 22px;
+  background:
+    linear-gradient(135deg, rgba(122, 83, 57, 0.92), rgba(184, 130, 89, 0.88), rgba(225, 185, 139, 0.82)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent);
 }
 
 .hero::after {
   content: "";
   position: absolute;
-  inset: -40% auto auto 58%;
-  width: 340px;
-  height: 340px;
+  inset: -28% auto auto 58%;
+  width: 360px;
+  height: 360px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.52), transparent 62%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45), transparent 62%);
   pointer-events: none;
 }
 
-.eyebrow {
-  font-size: 0.85rem;
+.hero-copy-block {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+
+.eyebrow,
+.contact-label {
+  margin: 0;
+  font-size: 0.82rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--terracotta);
   font-weight: 700;
+}
+
+.eyebrow {
+  color: rgba(255, 248, 241, 0.82);
 }
 
 h1,
 h2,
-h3 {
+h3,
+p {
   margin: 0;
 }
 
 .hero h1 {
   margin-top: 10px;
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.8rem, 5vw, 4.4rem);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  font-size: clamp(3rem, 5vw, 4.9rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  color: #fffdfb;
 }
 
 .hero-copy {
-  max-width: 760px;
-  margin: 16px 0 0;
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--subtext);
+  margin-top: 18px;
+  font-size: 1.02rem;
+  line-height: 1.95;
+  color: rgba(255, 250, 244, 0.88);
 }
 
-.hero-meta {
+.hero-badges {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 18px;
 }
 
-.hero-meta span {
+.hero-badges span {
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.52);
-  color: var(--text);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff9f2;
   font-size: 0.92rem;
 }
 
 .content-grid {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
+  grid-template-columns: 320px minmax(0, 1fr);
   gap: 24px;
   margin-top: 24px;
 }
 
 .sidebar,
 .policy-card {
-  border-radius: 28px;
+  border-radius: 30px;
 }
 
 .sidebar {
@@ -145,39 +166,56 @@ h3 {
   top: 24px;
   align-self: start;
   padding: 24px;
+  display: grid;
+  gap: 18px;
 }
 
-.sidebar h2 {
-  font-size: 1.2rem;
+.sidebar-section h2 {
+  font-size: 1.18rem;
   margin-bottom: 14px;
 }
 
 .summary-list {
   margin: 0;
   padding-left: 1.2rem;
+}
+
+.summary-list li,
+.policy-card li,
+.policy-card p,
+.contact-copy {
   color: var(--subtext);
-  line-height: 1.85;
+  line-height: 1.9;
+  font-size: 0.98rem;
 }
 
 .summary-list li + li {
   margin-top: 10px;
 }
 
+.contact-card,
+.contact-panel {
+  background: linear-gradient(180deg, rgba(255, 250, 244, 0.96), var(--panel-strong));
+}
+
 .contact-card {
-  margin-top: 22px;
-  padding: 18px;
-  border-radius: 22px;
-  background: var(--panel-strong);
+  padding: 20px;
+  border-radius: 24px;
   border: 1px solid var(--line);
 }
 
-.contact-card h3 {
-  font-size: 1rem;
-  margin-bottom: 10px;
+.contact-card .contact-label,
+.contact-panel .contact-label {
+  color: var(--terracotta);
 }
 
-.contact-card p {
-  margin: 0 0 6px;
+.contact-card h3 {
+  margin-top: 10px;
+  font-size: 1.3rem;
+}
+
+.contact-copy {
+  margin-top: 10px;
 }
 
 .policy-stack {
@@ -186,19 +224,13 @@ h3 {
 }
 
 .policy-card {
-  padding: 24px 26px;
+  padding: 26px 28px;
 }
 
 .policy-card h2 {
-  font-size: 1.18rem;
+  font-size: 1.22rem;
   margin-bottom: 12px;
-}
-
-.policy-card p,
-.policy-card li {
-  color: var(--subtext);
-  font-size: 0.98rem;
-  line-height: 1.9;
+  color: var(--text);
 }
 
 .policy-card ul {
@@ -211,19 +243,48 @@ h3 {
   margin-top: 12px;
 }
 
-.contact-detail a,
+.contact-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: end;
+}
+
+.contact-panel-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-panel h2 {
+  margin-bottom: 0;
+}
+
+.primary-link,
 .contact-card a {
-  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 16px;
   text-decoration: none;
-  border-bottom: 1px solid rgba(138, 90, 59, 0.25);
+  font-weight: 700;
+  color: #fffdfb;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 16px 30px rgba(107, 67, 40, 0.16);
 }
 
-.contact-detail a:hover,
+.contact-card a {
+  margin-top: 14px;
+  width: 100%;
+}
+
+.primary-link:hover,
 .contact-card a:hover {
-  color: var(--secondary);
+  filter: brightness(1.02);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .content-grid {
     grid-template-columns: 1fr;
   }
@@ -232,28 +293,43 @@ h3 {
     position: static;
   }
 
-  .hero {
-    padding: 28px 22px;
+  .contact-panel {
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 }
 
 @media (max-width: 640px) {
   .page-shell {
-    width: min(100% - 20px, 1180px);
+    width: min(100% - 20px, 1200px);
     padding-top: 18px;
   }
 
-  .hero h1 {
-    font-size: 2.55rem;
+  .hero {
+    padding: 28px 22px;
+    border-radius: 28px;
   }
 
-  .policy-card,
-  .sidebar {
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+
+  .hero-copy {
+    font-size: 0.98rem;
+  }
+
+  .hero-badges span {
+    width: 100%;
+  }
+
+  .sidebar,
+  .policy-card {
     padding: 20px 18px;
     border-radius: 24px;
   }
 
-  .hero-meta span {
+  .primary-link,
+  .contact-card a {
     width: 100%;
   }
 }
