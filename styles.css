@@ -1,18 +1,17 @@
 :root {
   --bg: #f6f0e7;
   --bg-deep: #e9d7c4;
-  --panel: rgba(255, 253, 249, 0.74);
-  --panel-strong: rgba(255, 250, 244, 0.92);
-  --line: rgba(205, 175, 148, 0.55);
-  --line-soft: rgba(138, 90, 59, 0.12);
+  --panel: rgba(255, 252, 247, 0.82);
+  --panel-strong: rgba(255, 249, 242, 0.94);
+  --line: rgba(205, 175, 148, 0.46);
   --text: #3a2a1f;
   --subtext: #5f4e40;
   --primary: #8a5a3b;
   --secondary: #a86f48;
   --terracotta: #c89263;
   --sage: #8e9b7a;
-  --glow: rgba(255, 244, 228, 0.92);
-  --shadow: rgba(75, 46, 29, 0.14);
+  --glow: rgba(255, 244, 228, 0.88);
+  --shadow: rgba(75, 46, 29, 0.12);
 }
 
 * {
@@ -29,9 +28,9 @@ body {
   font-family: "Noto Sans TC", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(216, 161, 91, 0.26), transparent 30%),
-    radial-gradient(circle at right top, rgba(142, 155, 122, 0.18), transparent 24%),
-    linear-gradient(135deg, var(--bg), #f1e4d4 45%, var(--bg-deep));
+    radial-gradient(circle at top left, rgba(216, 161, 91, 0.24), transparent 28%),
+    radial-gradient(circle at right top, rgba(142, 155, 122, 0.14), transparent 22%),
+    linear-gradient(135deg, var(--bg), #f1e4d4 48%, var(--bg-deep));
 }
 
 body::before {
@@ -40,73 +39,64 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.24), transparent 24%, transparent 76%, rgba(255, 255, 255, 0.18)),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.2), transparent 24%, transparent 76%, rgba(255, 255, 255, 0.14)),
     repeating-linear-gradient(
       120deg,
       rgba(138, 90, 59, 0.018) 0,
-      rgba(138, 90, 59, 0.018) 3px,
-      transparent 3px,
+      rgba(138, 90, 59, 0.018) 2px,
+      transparent 2px,
       transparent 18px
     );
   mix-blend-mode: soft-light;
 }
 
 .page-shell {
-  width: min(1200px, calc(100% - 32px));
+  width: min(1080px, calc(100% - 28px));
   margin: 0 auto;
-  padding: 30px 0 48px;
+  padding: 24px 0 48px;
 }
 
 .glass-panel {
   background: linear-gradient(180deg, rgba(255, 253, 248, 0.92), var(--panel));
-  border: 1px solid rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.58);
   box-shadow:
-    0 22px 48px var(--shadow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(18px) saturate(145%);
-  -webkit-backdrop-filter: blur(18px) saturate(145%);
+    0 18px 40px var(--shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
 }
 
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 38px;
-  border-radius: 32px;
-  display: grid;
-  gap: 22px;
+  padding: 32px;
+  border-radius: 30px;
   background:
     linear-gradient(135deg, rgba(122, 83, 57, 0.92), rgba(184, 130, 89, 0.88), rgba(225, 185, 139, 0.82)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent);
 }
 
 .hero::after {
   content: "";
   position: absolute;
-  inset: -28% auto auto 58%;
-  width: 360px;
-  height: 360px;
+  inset: -22% auto auto 64%;
+  width: 300px;
+  height: 300px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.45), transparent 62%);
-  pointer-events: none;
-}
-
-.hero-copy-block {
-  position: relative;
-  z-index: 1;
-  max-width: 760px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.38), transparent 64%);
 }
 
 .eyebrow,
-.contact-label {
+.section-label {
   margin: 0;
-  font-size: 0.82rem;
-  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 700;
 }
 
 .eyebrow {
-  color: rgba(255, 248, 241, 0.82);
+  color: rgba(255, 248, 241, 0.8);
 }
 
 h1,
@@ -119,123 +109,197 @@ p {
 .hero h1 {
   margin-top: 10px;
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(3rem, 5vw, 4.9rem);
-  line-height: 0.92;
-  letter-spacing: -0.035em;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
   color: #fffdfb;
 }
 
 .hero-copy {
-  margin-top: 18px;
-  font-size: 1.02rem;
-  line-height: 1.95;
+  max-width: 720px;
+  margin-top: 16px;
+  font-size: 1rem;
+  line-height: 1.9;
   color: rgba(255, 250, 244, 0.88);
 }
 
-.hero-badges {
-  position: relative;
-  z-index: 1;
+.hero-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.hero-badges span {
+.hero-meta span {
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   color: #fff9f2;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 
-.content-grid {
+.quick-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
+  margin-top: 16px;
+  border-radius: 22px;
+}
+
+.quick-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.54);
+  font-weight: 700;
+}
+
+.main-stack {
   display: grid;
-  grid-template-columns: 320px minmax(0, 1fr);
-  gap: 24px;
-  margin-top: 24px;
+  gap: 18px;
+  margin-top: 18px;
 }
 
-.sidebar,
-.policy-card {
-  border-radius: 30px;
-}
-
-.sidebar {
-  position: sticky;
-  top: 24px;
-  align-self: start;
-  padding: 24px;
+.summary-grid {
   display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 18px;
 }
 
-.sidebar-section h2 {
-  font-size: 1.18rem;
-  margin-bottom: 14px;
+.feature-card,
+.guide-card,
+.policy-card {
+  border-radius: 28px;
 }
 
-.summary-list {
+.feature-card,
+.guide-card {
+  padding: 24px;
+}
+
+.feature-card {
+  display: grid;
+  gap: 14px;
+}
+
+.feature-card h2,
+.guide-card h2,
+.policy-shell h2 {
+  font-size: 1.45rem;
+}
+
+.feature-card p,
+.guide-card p,
+.policy-card p,
+.policy-card li {
+  color: var(--subtext);
+  line-height: 1.85;
+  font-size: 0.98rem;
+}
+
+.summary-list,
+.policy-card ul {
   margin: 0;
   padding-left: 1.2rem;
 }
 
-.summary-list li,
-.policy-card li,
-.policy-card p,
-.contact-copy {
-  color: var(--subtext);
-  line-height: 1.9;
-  font-size: 0.98rem;
+.summary-list li + li,
+.policy-card li + li {
+  margin-top: 8px;
 }
 
-.summary-list li + li {
-  margin-top: 10px;
+.primary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  width: fit-content;
+  padding: 0 20px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #fffdfb;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 14px 28px rgba(107, 67, 40, 0.14);
 }
 
-.contact-card,
-.contact-panel {
-  background: linear-gradient(180deg, rgba(255, 250, 244, 0.96), var(--panel-strong));
+.guide-card {
+  display: grid;
+  gap: 18px;
 }
 
-.contact-card {
-  padding: 20px;
-  border-radius: 24px;
-  border: 1px solid var(--line);
+.section-head {
+  display: grid;
+  gap: 10px;
 }
 
-.contact-card .contact-label,
-.contact-panel .contact-label {
+.section-head-tight {
+  margin-bottom: 2px;
+}
+
+.section-label {
   color: var(--terracotta);
 }
 
-.contact-card h3 {
-  margin-top: 10px;
-  font-size: 1.3rem;
+.guide-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
 }
 
-.contact-copy {
-  margin-top: 10px;
+.step-card {
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 250, 244, 0.94), var(--panel-strong));
+  border: 1px solid var(--line);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(200, 146, 99, 0.14);
+  color: var(--terracotta);
+  font-weight: 800;
+}
+
+.step-card h3 {
+  margin-top: 12px;
+  font-size: 1.02rem;
+}
+
+.step-card p {
+  margin-top: 8px;
+}
+
+.policy-shell {
+  display: grid;
+  gap: 16px;
 }
 
 .policy-stack {
   display: grid;
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .policy-card {
-  padding: 26px 28px;
+  padding: 22px 24px;
 }
 
-.policy-card h2 {
-  font-size: 1.22rem;
-  margin-bottom: 12px;
-  color: var(--text);
-}
-
-.policy-card ul {
-  margin: 0;
-  padding-left: 1.2rem;
+.policy-card h3 {
+  font-size: 1.08rem;
+  margin-bottom: 10px;
 }
 
 .policy-card ul + p,
@@ -243,93 +307,35 @@ p {
   margin-top: 12px;
 }
 
-.contact-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 18px;
-  align-items: end;
-}
-
-.contact-panel-copy {
-  display: grid;
-  gap: 10px;
-}
-
-.contact-panel h2 {
-  margin-bottom: 0;
-}
-
-.primary-link,
-.contact-card a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 0 22px;
-  border-radius: 16px;
-  text-decoration: none;
-  font-weight: 700;
-  color: #fffdfb;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  box-shadow: 0 16px 30px rgba(107, 67, 40, 0.16);
-}
-
-.contact-card a {
-  margin-top: 14px;
-  width: 100%;
-}
-
-.primary-link:hover,
-.contact-card a:hover {
-  filter: brightness(1.02);
-}
-
 @media (max-width: 960px) {
-  .content-grid {
+  .summary-grid,
+  .guide-steps,
+  .policy-stack {
     grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    position: static;
-  }
-
-  .contact-panel {
-    grid-template-columns: 1fr;
-    align-items: start;
   }
 }
 
 @media (max-width: 640px) {
   .page-shell {
-    width: min(100% - 20px, 1200px);
+    width: min(100% - 18px, 1080px);
     padding-top: 18px;
   }
 
-  .hero {
-    padding: 28px 22px;
-    border-radius: 28px;
-  }
-
-  .hero h1 {
-    font-size: 2.75rem;
-  }
-
-  .hero-copy {
-    font-size: 0.98rem;
-  }
-
-  .hero-badges span {
-    width: 100%;
-  }
-
-  .sidebar,
+  .hero,
+  .feature-card,
+  .guide-card,
   .policy-card {
     padding: 20px 18px;
     border-radius: 24px;
   }
 
-  .primary-link,
-  .contact-card a {
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero-meta span,
+  .quick-nav a,
+  .primary-link {
     width: 100%;
   }
 }
