@@ -1,6 +1,7 @@
 :root {
   --bg: #f6f0e7;
   --bg-deep: #e9d7c4;
+  --bg-mid: #f1e2d0;
   --panel: rgba(255, 252, 247, 0.82);
   --panel-strong: rgba(255, 249, 242, 0.94);
   --line: rgba(205, 175, 148, 0.46);
@@ -10,6 +11,7 @@
   --secondary: #a86f48;
   --terracotta: #c89263;
   --sage: #8e9b7a;
+  --honey: #d8a15b;
   --glow: rgba(255, 244, 228, 0.88);
   --shadow: rgba(75, 46, 29, 0.12);
 }
@@ -28,9 +30,9 @@ body {
   font-family: "Noto Sans TC", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(216, 161, 91, 0.24), transparent 28%),
+    radial-gradient(circle at top left, rgba(216, 161, 91, 0.22), transparent 28%),
     radial-gradient(circle at right top, rgba(142, 155, 122, 0.14), transparent 22%),
-    linear-gradient(135deg, var(--bg), #f1e4d4 48%, var(--bg-deep));
+    linear-gradient(135deg, var(--bg), var(--bg-mid) 48%, var(--bg-deep));
 }
 
 body::before {
@@ -53,7 +55,7 @@ body::before {
 .page-shell {
   width: min(1080px, calc(100% - 28px));
   margin: 0 auto;
-  padding: 24px 0 48px;
+  padding: 24px 0 56px;
 }
 
 .glass-panel {
@@ -89,7 +91,7 @@ body::before {
 .eyebrow,
 .section-label {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 700;
@@ -106,11 +108,42 @@ p {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+p,
+li,
+a {
+  text-wrap: pretty;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.hero-title-group {
+  display: grid;
+  gap: 2px;
+}
+
+.app-icon {
+  width: 86px;
+  height: 86px;
+  border-radius: 24px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 18px 36px rgba(58, 42, 31, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
 .hero h1 {
-  margin-top: 10px;
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(2.8rem, 5vw, 4.5rem);
-  line-height: 0.94;
+  line-height: 0.98;
   letter-spacing: -0.03em;
   color: #fffdfb;
 }
@@ -118,8 +151,8 @@ p {
 .hero-copy {
   max-width: 720px;
   margin-top: 16px;
-  font-size: 1rem;
-  line-height: 1.9;
+  font-size: 1.06rem;
+  line-height: 1.85;
   color: rgba(255, 250, 244, 0.88);
 }
 
@@ -136,7 +169,7 @@ p {
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.24);
   color: #fff9f2;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 .quick-nav {
@@ -159,6 +192,7 @@ p {
   color: var(--text);
   background: rgba(255, 255, 255, 0.54);
   font-weight: 700;
+  font-size: 0.96rem;
 }
 
 .main-stack {
@@ -192,7 +226,8 @@ p {
 .feature-card h2,
 .guide-card h2,
 .policy-shell h2 {
-  font-size: 1.45rem;
+  font-size: clamp(1.5rem, 2vw, 1.9rem);
+  line-height: 1.2;
 }
 
 .feature-card p,
@@ -200,8 +235,8 @@ p {
 .policy-card p,
 .policy-card li {
   color: var(--subtext);
-  line-height: 1.85;
-  font-size: 0.98rem;
+  line-height: 1.88;
+  font-size: 1rem;
 }
 
 .summary-list,
@@ -230,6 +265,12 @@ p {
   box-shadow: 0 14px 28px rgba(107, 67, 40, 0.14);
 }
 
+.inline-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration-color: rgba(138, 90, 59, 0.35);
+}
+
 .guide-card {
   display: grid;
   gap: 18px;
@@ -238,6 +279,10 @@ p {
 .section-head {
   display: grid;
   gap: 10px;
+}
+
+.section-head p {
+  font-size: 1rem;
 }
 
 .section-head-tight {
@@ -275,11 +320,13 @@ p {
 
 .step-card h3 {
   margin-top: 12px;
-  font-size: 1.02rem;
+  font-size: 1.08rem;
+  line-height: 1.3;
 }
 
 .step-card p {
   margin-top: 8px;
+  font-size: 0.98rem;
 }
 
 .policy-shell {
@@ -298,8 +345,9 @@ p {
 }
 
 .policy-card h3 {
-  font-size: 1.08rem;
+  font-size: 1.12rem;
   margin-bottom: 10px;
+  line-height: 1.35;
 }
 
 .policy-card ul + p,
@@ -313,12 +361,28 @@ p {
   .policy-stack {
     grid-template-columns: 1fr;
   }
+
+  .hero-top {
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 640px) {
   .page-shell {
     width: min(100% - 18px, 1080px);
     padding-top: 18px;
+  }
+
+  .hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .app-icon {
+    width: 74px;
+    height: 74px;
+    border-radius: 20px;
   }
 
   .hero,
@@ -331,6 +395,10 @@ p {
 
   .hero h1 {
     font-size: 2.6rem;
+  }
+
+  .hero-copy {
+    font-size: 1rem;
   }
 
   .hero-meta span,
